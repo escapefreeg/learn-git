@@ -1,5 +1,6 @@
 from builtins import range
 from builtins import object
+from platform import dist
 import numpy as np
 from past.builtins import xrange
 
@@ -76,8 +77,8 @@ class KNearestNeighbor(object):
                 # not use a loop over dimension, nor use np.linalg.norm().          #
                 #####################################################################
                 # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-                pass
+                
+                dists[i][j] = sqrt(np.sum((X[i] - self.X_train[j]) ** 2))
 
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
