@@ -18,6 +18,7 @@ bin-release/
 # information for Eclipse / Flash Builder.
 .idea/
 .vscode/
-cs231n/datasets/cifar-10-batches-py/
-cs231n/datasets/cifar-10-python.tar.gz
-__pycache__/
+cs231n/__pycache__/
+cs231n/classifiers/__pycache__/
+cs231n/datasets/
+
