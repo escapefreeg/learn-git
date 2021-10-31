@@ -1,8 +1,10 @@
 from builtins import range
 from builtins import object
-from platform import dist
+# joker
+# from platform import dist
 import numpy as np
-from past.builtins import xrange
+# joker
+# from past.builtins import xrange
 
 
 class KNearestNeighbor(object):
@@ -62,8 +64,8 @@ class KNearestNeighbor(object):
 
         Returns:
         - dists: A numpy array of shape (num_test, num_train) where dists[i, j]
-          is the Euclidean distance between the ith test point and the jth training
-          point.
+        is the Euclidean distance between the ith test point and the jth training
+        point.
         """
         num_test = X.shape[0]
         num_train = self.X_train.shape[0]
@@ -78,8 +80,8 @@ class KNearestNeighbor(object):
                 #####################################################################
                 # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
                 
-                dists[i][j] = sqrt(np.sum((X[i] - self.X_train[j]) ** 2))
-
+                dists[i][j] = np.sqrt(np.sum(np.square(X[i] - self.X_train[j])))
+                
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
 
@@ -102,7 +104,7 @@ class KNearestNeighbor(object):
             #######################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
+            dists[i,:] = np.sqrt(np.sum(np.square(self.X_train[:] - X[i,:]),axis=1))
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
@@ -132,7 +134,9 @@ class KNearestNeighbor(object):
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-        pass
+        testT = np.sum(np.square(X),1).reshape(-1,1)
+        trainT = np.sum(np.square(self.X_train),1).reshape(1,-1)
+        dists = np.sqrt(testT + trainT - 2 * X @ self.X_train.T)
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
@@ -165,7 +169,8 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
+            closest_y = self.y_train[np.argsort(dists[i,:])[:k]]
+            
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
             #########################################################################
@@ -177,8 +182,8 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-            pass
-
+            y_pred[i] = np.argmax(np.bincount(closest_y))
+            
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
         return y_pred
