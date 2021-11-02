@@ -1,0 +1,2 @@
+this is b.txt
+create this file to learn git
