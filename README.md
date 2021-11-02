@@ -5,6 +5,8 @@
 - [李宏毅2021年春季Deep learning课程主页](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)
 - [李宏毅2021年春季课程B站视频-全](https://www.bilibili.com/video/BV1Wv411h7kN?p=8)
 - [李宏毅2021年春季课程B站视频-精简](https://www.bilibili.com/video/BV1JA411c7VT?p=4)
+- [作业1kaggle](https://www.kaggle.com/c/ml2021spring-hw1/data)
+- [作业1ipynb](https://colab.research.google.com/github/ga642381/ML2021-Spring/blob/main/HW01/HW01.ipynb#scrollTo=BtE3b6JEH7rw)
 ### CS231n课程
 - [CS231n作业1参考](https://blog.csdn.net/zhangxb35/article/details/55223825)
 - [CS231n作业1页面](https://cs231n.github.io/assignments2021/assignment1/#q2-training-a-support-vector-machine)
