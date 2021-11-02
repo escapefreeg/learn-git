@@ -8,3 +8,7 @@
 - [pytorch官方下载网址](https://pytorch.org/get-started/locally/#no-cuda-1)
 - [CS231n2020春季课程主页](http://cs231n.github.io/)
 - [numpy官方教程](https://www.numpy.org.cn/user/quickstart.html#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6)
+- [CS231n作业1参考](https://blog.csdn.net/zhangxb35/article/details/55223825)
+- [CS231n作业1页面](https://cs231n.github.io/assignments2021/assignment1/#q2-training-a-support-vector-machine)
+- [CS231n作业相关仓库](https://github.com/hanlulu1998/CS231n/blob/master/assignment1/knn.ipynb)
+
