@@ -12,6 +12,8 @@ bin-release/
 *.air
 *.ipa
 *.apk
+*.zip
+*.tar.gz
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
@@ -20,5 +22,5 @@ bin-release/
 .vscode/
 cs231n/__pycache__/
 cs231n/classifiers/__pycache__/
-cs231n/datasets/
+cs231n/datasets/cifar-10-batches-py/
 
