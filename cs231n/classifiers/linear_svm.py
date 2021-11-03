@@ -60,7 +60,7 @@ def svm_loss_naive(W, X, y, reg):
     #############################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    
+    pass
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
@@ -82,9 +82,12 @@ def svm_loss_vectorized(W, X, y, reg):
     # result in loss.                                                           #
     #############################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-    pass
-
+    trainNum = X.shape[0]
+    scoresMatrix = X.dot(W)
+    scoresMatrix = scoresMatrix + 1 - scoresMatrix[np.arange(trainNum),y].reshape(trainNum,-1)
+    scoresMatrix[np.arange(trainNum), y] = 0
+    scoresMatrix = scoresMatrix * (scoresMatrix > 0)
+    loss = np.sum(scoresMatrix)/trainNum + reg * np.sum(W * W)
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     #############################################################################
@@ -97,8 +100,12 @@ def svm_loss_vectorized(W, X, y, reg):
     # loss.                                                                     #
     #############################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-    pass
+    scoresMatrix = (scoresMatrix > 0) * 1
+    rowSum = np.sum(scoresMatrix,axis=1)
+    scoresMatrix[np.arange(trainNum),y] = -rowSum
+    dW = X.T @ scoresMatrix
+    dW = dW / trainNum
+    dW = dW + 2 * reg * W
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
